@@ -1,6 +1,2 @@
-FROM python:3.7
-COPY ./requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
-COPY . ./app
-WORKDIR /app
-ENTRYPOINT python main.py
+FROM alpine:3.17.1
+ENTRYPOINT sh
