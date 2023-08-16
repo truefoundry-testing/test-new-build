@@ -19,4 +19,4 @@ jobs:
         uses: actions/checkout@v3
       - name: Deploy
         run: |
-          sfy patch-application --application_fqn=tfy-ctl-euwe1-devtest:akash-ws:cicd-test --patch='{"image": {"build_source": {"type": "local", "project_root_path": "./", "local_build": true}}}'
+          sfy patch-application --application_fqn=tfy-ctl-euwe1-devtest:akash-ws:cicd-test --patch='{"image": {"type": "build", "build_source": {"type": "local", "project_root_path": "./", "local_build": true}, "build_spec": {"type": "dockerfile", "dockerfile_path": "./Dockerfile", "build_context_path": "./"}}}'
