@@ -36,7 +36,7 @@ class RequestsHandler(exposition.MetricsHandler):
 
 
 if __name__ == '__main__':
-    cpu = "a" * random.random() * 1000000
+    cpu = "a" * random.randint(1,5) * 1000000
     for path in ('/foo', '/bar'):
         REQUESTS_COUNT.labels(endpoint=path)
 
