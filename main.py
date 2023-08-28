@@ -1,9 +1,11 @@
 import http.server
+import random
 
 from prometheus_client import Counter, exposition
 
 COUNTER_NAME = 'akash_requests_count'
 REQUESTS_COUNT = Counter(COUNTER_NAME, 'Count', ['endpoint'])
+
 
 class RequestsHandler(exposition.MetricsHandler):
 
@@ -34,6 +36,7 @@ class RequestsHandler(exposition.MetricsHandler):
 
 
 if __name__ == '__main__':
+    cpu = "a" * random.random() * 1000000
     for path in ('/foo', '/bar'):
         REQUESTS_COUNT.labels(endpoint=path)
 
